@@ -28,6 +28,7 @@ if __name__=="__main__":
     # Load Groot XML behavior tree
     root = groot_xml.load("test1.xml", behaviors=all_behaviors, decorators=all_decorators)
     print(py_trees.display.ascii_tree(root))
+    # py_trees.display.render_dot_tree(root) # render behavior tree
 
     # Play Behavior Tree
     py_trees.logging.level = py_trees.logging.Level.DEBUG
