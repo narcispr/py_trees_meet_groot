@@ -8,18 +8,15 @@ def load(xml_file_path: str, behaviors: list = [], decorators: dict = {}):
         dict_bh[bh.name] = bh
     
     doc = parse(xml_file_path)
-    main_tree_to_execute = ""
     try:
         root = doc.getElementsByTagName("root")[0]
         print(root)
-        main_tree_to_execute = root.getAttribute("main_tree_to_execute")
-        print(main_tree_to_execute)
         behavior_trees = root.getElementsByTagName("BehaviorTree")
         for bht in behavior_trees:
             ret = parse_BehaviourTree(bht, dict_bh, decorators)
         return ret[0]
-    except:
-        print("main_tree_to_execute not found")
+    except Exception as e :
+        print(f"Exception parsing Tree: {str(e)}")
     
 def parse_BehaviourTree(bh: Element, dict_bh: dict, decorators: dict) -> list:
     ret = []
