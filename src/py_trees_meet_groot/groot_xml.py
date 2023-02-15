@@ -96,7 +96,8 @@ def parse_BehaviourTree(bh: Element, dict_bh: dict, decorators: dict) -> list:
             set_blackboard = py_trees.behaviours.SetBlackboardVariable(
                 name="set_blackboard",
                 variable_name=output_key,
-                variable_value=value
+                variable_value=value,
+                overwrite = True
             )
             ret.append(set_blackboard)
         elif str(e.nodeName) == "Action" or str(e.nodeName) == "Condition":
